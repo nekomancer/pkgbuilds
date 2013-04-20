@@ -1,8 +1,8 @@
 # Maintainer: fsckd <fsckdaemon -at- gmail.com>
 
 pkgname=awbot-git
-pkgver=20130119
-pkgrel=2
+pkgver=6.392d511
+pkgrel=1
 pkgdesc="Arch Linux Women IRC bot"
 arch=('any')
 url="http://archwomen.org"
@@ -14,6 +14,11 @@ source=('git://github.com/archwomen/awbot')
 sha256sums=('SKIP')
 conflicts=(awbot)
 provides=(awbot)
+
+pkgver() {
+  cd "$srcdir/awbot"
+  echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
+}
 
 package()
 {
