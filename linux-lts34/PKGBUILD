@@ -10,7 +10,6 @@ _basekernel=3.4
 true && pkgname=(${_pkgname} ${_pkgname}-headers ${_pkgname}-docs)
 pkgver=${_basekernel}.59
 pkgrel=2
-pkgdesc="The ${_pkgname} kernel and modules - 3.4 longterm stable kernel"
 url="http://www.kernel.org/"
 license=('GPL2')
 arch=('i686' 'x86_64')
@@ -102,6 +101,7 @@ build() {
 }
 
 package_linux-lts34() {
+  pkgdesc="The ${_pkgname} kernel and modules - 3.4 longterm stable kernel"
   depends=('coreutils' 'linux-firmware' 'kmod' 'mkinitcpio>=0.7')
   optdepends=('crda: to set the correct wireless channels of your country')
   backup=("etc/mkinitcpio.d/${_pkgname}.preset")
@@ -295,3 +295,6 @@ package_linux-lts34-docs() {
   # remove a file already in linux package
   rm -f "${pkgdir}/usr/src/linux-${_kernver}/Documentation/DocBook/Makefile"
 }
+
+# Needed for AUR.
+pkgdesc="The ${_pkgname} kernel and modules - 3.4 longterm stable kernel"
