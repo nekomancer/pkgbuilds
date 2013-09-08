@@ -1,0 +1,9 @@
+# general
+*.src.tar.*
+*.pkg.tar.*
+src/
+pkg/
+
+# specific
+/linux-lts34/linux-3.4.tar.xz
+/linux-lts34/patch-3.4.*
